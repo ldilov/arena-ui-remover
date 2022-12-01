@@ -1,6 +1,6 @@
 ## Title: ArenaUIRemover
 ## Version: 1.0
 ## Author: Lazar Dilov
-## Interface: 100000
+## Interface: 100002
 
 ArenaUIRemover.lua
