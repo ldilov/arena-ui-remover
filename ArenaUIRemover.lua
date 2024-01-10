@@ -1,5 +1,5 @@
 -- Author      : Lazar Dilov
--- Create Date : 11/5/2022 6:12:20 AM
+-- Create Date : 1/10/2024 6:12:20 AM
 
 C_CVar.SetCVar('showArenaEnemyFrames', 0)
 
@@ -10,7 +10,7 @@ local blizzFrame = CreateFrame("Frame", nil, UIParent)
 
 local farenaprep = CreateFrame('Frame')
 farenaprep:SetScript('OnEvent', function(self, event,...)
-    if event == 'ARENA_PREP_OPPONENT_SPECIALIZATIONS' then
+    if event == 'ARENA_PREP_OPPONENT_SPECIALIZATIONS' or event == 'ARENA_OPPONENT_UPDATE' then
         print("|cffFFF569ArenaUIRemover:|r default arena frames are now hidden!")
         ArenaRemoverEventCallback()
     end
@@ -34,6 +34,7 @@ ArenaRemoverEventCallback = function()
   local _, instanceType = IsInInstance()
 
   LoadAddOn("Blizzard_ArenaUI")
+  C_CVar.SetCVar('showArenaEnemyFrames', 0)
 
   if (instanceType == "arena") then
       for i = 1, 5 do
