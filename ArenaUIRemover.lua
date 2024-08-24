@@ -33,14 +33,14 @@ farenaprep_2:RegisterEvent('PLAYER_ENTERING_WORLD')
 ArenaRemoverEventCallback = function()
   local _, instanceType = IsInInstance()
 
-  LoadAddOn("Blizzard_ArenaUI")
+  loaded, value = C_AddOns.LoadAddOn(name)
   C_CVar.SetCVar('showArenaEnemyFrames', 0)
 
   if (instanceType == "arena") then
       for i = 1, 5 do
           local arenaFrame = _G["ArenaEnemyMatchFrame" .. i]
           local prepFrame = _G["ArenaEnemyPrepFrame" .. i]
-          local arenaFramesContainer = _G["ArenaEnemyMatchFramesContainer"]
+          local arenaFramesContainøer = _G["ArenaEnemyMatchFramesContainer"]
           local prepFramesContainer = _G["ArenaEnemyPrepFramesContainer"]
           
           if prepFrame ~= nil then
